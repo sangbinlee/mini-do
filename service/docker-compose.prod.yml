@@ -1,10 +1,12 @@
 version: "3.8"
+
 services:
   mini-do: # 서비스 이름
     container_name: mini-do
-    build: .
+    build:
+      context: ./next-app
+      dockerfile: Dockerfile
     restart: always
-    command: ["yarn", "dev"]
     environment:
       - NODE_ENV=production
     ports:
