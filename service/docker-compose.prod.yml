@@ -4,7 +4,7 @@ services:
   mini-do: # 서비스 이름
     container_name: mini-do
     build:
-      context: ./next-app
+      context: ./mini-do
       dockerfile: Dockerfile
     restart: always
     environment:
