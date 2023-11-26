@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mini-do: # 서비스 이름
+    container_name: mini-do
+    build: .
+    restart: always
+    command: ["yarn", "dev"]
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 3000:3000
+
+
+# docker compose up -d -f docker-compose.prod.yml --build

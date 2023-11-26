@@ -48,13 +48,16 @@ Copy the .env.example file and rename it to .env. Update the values in the file 
 *4*. Set up the database:
 
 ```bash
-prisma migrate dev
+npx prisma migrate dev
 ```
 
 *5*. Start the development server:
 
 ```bash
 yarn dev
+or
+yarn build
+yarn start
 ```
 
 *6*. Open your browser and visit <http://localhost:3000> to access mini-do.
