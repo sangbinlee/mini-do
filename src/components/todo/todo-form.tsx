@@ -1,4 +1,12 @@
+import { myAxios } from "@/lib/data-fetcher";
+import { addFormSchema } from "@/schema/todo";
+import { TodoFormType } from "@/types/todo";
+import { DevTool } from "@hookform/devtools";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { SaveIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { Button } from "../ui/button";
 import {
     Form,
     FormControl,
@@ -7,15 +15,7 @@ import {
     FormLabel,
     FormMessage,
 } from "../ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
-import { TodoFormType } from "@/types/todo";
-import { addFormSchema } from "@/schema/todo";
-import { Button } from "../ui/button";
-import { DevTool } from "@hookform/devtools";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { myAxios } from "@/lib/data-fetcher";
-import { SaveIcon } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const FormComponent = () => {
@@ -39,7 +39,9 @@ const FormComponent = () => {
             });
         },
         onSuccess: () => {
-            queryClient.invalidateQueries(["todos"]);
+            // queryClient.invalidateQueries(["todos"]);
+            // `todos`로 시작하는 키로 모든 쿼리를 무효화함
+            queryClient.invalidateQueries({ queryKey: ['todos'] });
         },
     });
     return (

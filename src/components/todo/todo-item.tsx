@@ -1,13 +1,14 @@
-import { BanIcon, Delete, Edit, SaveIcon } from "lucide-react";
-import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Input } from "../ui/input";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { Checkbox } from "../ui/checkbox";
-import { Skeleton } from "../ui/skeleton";
+import { myAxios } from "@/lib/data-fetcher";
+import { addFormSchema } from "@/schema/todo";
 import { TodoFormType, TodoProps } from "@/types/todo";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { BanIcon, Delete, Edit, SaveIcon } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Checkbox } from "../ui/checkbox";
 import {
     Form,
     FormControl,
@@ -17,10 +18,9 @@ import {
     FormLabel,
     FormMessage,
 } from "../ui/form";
-import { useForm } from "react-hook-form";
-import { addFormSchema } from "@/schema/todo";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { myAxios } from "@/lib/data-fetcher";
+import { Input } from "../ui/input";
+import { Skeleton } from "../ui/skeleton";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 export const TodoItem = (props: TodoProps) => {
     const queryClient = useQueryClient();
@@ -38,7 +38,9 @@ export const TodoItem = (props: TodoProps) => {
             return dt;
         },
         onSuccess: () => {
-            queryClient.invalidateQueries(["todos"]);
+            // queryClient.invalidateQueries(["todos"]);
+            // `todos`로 시작하는 키로 모든 쿼리를 무효화함
+            queryClient.invalidateQueries({ queryKey: ['todos'] });
         },
     });
     const handleUpdate = ({ id, title }: { id: string; title: string }) => {

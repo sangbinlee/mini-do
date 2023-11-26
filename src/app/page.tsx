@@ -31,8 +31,9 @@ const Home = () => {
             });
             return dt;
         },
-        onSuccess: () => {
-            queryClient.invalidateQueries(["todos"]);
+        onSuccess: () => { 
+            // `todos`로 시작하는 키로 모든 쿼리를 무효화함
+            queryClient.invalidateQueries({ queryKey: ['todos'] });
         },
     });
     const handleToggle = (todo: Todo) => {
@@ -61,7 +62,9 @@ const Home = () => {
             await myAxios.delete(`/todos/${id}`);
         },
         onSuccess: () => {
-            queryClient.invalidateQueries(["todos"]);
+            // queryClient.invalidateQueries(["todos"]);
+            // `todos`로 시작하는 키로 모든 쿼리를 무효화함
+            queryClient.invalidateQueries({ queryKey: ['todos'] });
         },
     });
     const handleDelete = (id: string) => {
@@ -80,7 +83,10 @@ const Home = () => {
         );
     }
     if (isError) {
-        throw new Error(error as string);
+        // throw new Error(isError as string);
+        // throw new Error("This is an error");
+        // throw new Error(error);
+        throw error;
     }
 
     return (
