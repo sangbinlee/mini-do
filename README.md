@@ -42,6 +42,9 @@ yarn install
 
 *3*. Set up the environment variables:
 Copy the .env.example file and rename it to .env. Update the values in the file with your own configuration.
+
+
+
 *4*. Set up the database:
 
 ```bash
