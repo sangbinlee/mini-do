@@ -13,13 +13,13 @@ services:
       - /app/node_modules
     # restart: unless-stopped
     depends_on:
-      - localhost
+      - db
     restart: always
     environment:
       - NODE_ENV=production
     ports:
       - 3000:3000
-  localhost:
+  db:
     image: 'postgres:latest'
     restart: always
     environment:
