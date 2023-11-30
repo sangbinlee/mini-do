@@ -12,24 +12,36 @@ services:
       - .:/app
       - /app/node_modules
     # restart: unless-stopped
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     restart: always
-    environment:
-      - NODE_ENV=production
+    # environment:
+    #   - NODE_ENV=production
     ports:
       - 3000:3000
-  db:
-    image: 'postgres:latest'
-    restart: always
-    environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
-    ports:
-      - '5432:5432'
-    volumes:
-      - ./data/postgres/:/var/lib/postgresql/data
+
+
+
+
+
+# | Can't reach database server at `localhost`:`5432`
+# mini-do       |
+# mini-do       | Please make sure your database server is running at `localhost`:`5432`. {
+
+
+
+
+  # db:
+  #   image: 'postgres:latest'
+  #   restart: always
+  #   environment:
+  #     - 'POSTGRES_DB=mydatabase'
+  #     - 'POSTGRES_PASSWORD=secret'
+  #     - 'POSTGRES_USER=myuser'
+  #   ports:
+  #     - '5432:5432'
+  #   volumes:
+  #     - ./data/postgres/:/var/lib/postgresql/data
 # volumes:
 #   db:
 
