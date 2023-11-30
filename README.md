@@ -104,3 +104,27 @@ If you have any questions or inquiries, please feel free to reach out.
 - Email: <emon5122@gmail.com>
 
 - GitHub: emon5122
+
+
+
+
+# 환경변수 yarn dev
+    D:\dev\front-end\mini-do>yarn dev
+    yarn run v1.22.19
+    $ next dev 
+    ▲ Next.js 14.0.3
+    - Local:        http://localhost:3000
+    - Environments: .env.local, .env
+
+
+# 환경변수 yarn build 
+    D:\dev\front-end\mini-do>yarn build
+    yarn run v1.22.19
+    $ next build
+    ▲ Next.js 14.0.3
+    - Environments: .env.production.local, .env.local, .env
+
+
+
+
+ 
