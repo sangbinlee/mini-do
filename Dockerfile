@@ -20,9 +20,7 @@ COPY . .
 
 # RUN npm run build
 RUN yarn build
-
-# FROM node:14
-FROM node:18-alpine 
+ 
  
 
 
@@ -33,6 +31,7 @@ COPY --from=development /app/yarn.lock ./
 
 EXPOSE 3000
 # CMD [ "npm", "run", "start:prod" ]
-CMD [ "yarn", "run", "start" ]
+CMD [ "npm", "run", "start" ]
+# CMD [ "yarn", "run", "start" ]
 
 # docker build -t mini-do:lastest .
