@@ -1,4 +1,5 @@
-FROM node:18-alpine AS development 
+# FROM node:18-alpine AS development 
+FROM node:18-alpine
 
 # Create app directory
 WORKDIR /app
@@ -24,9 +25,9 @@ RUN yarn build
  
 
 
-COPY --from=development /app/node_modules ./node_modules
-COPY --from=development /app/package.json ./
-COPY --from=development /app/yarn.lock ./
+# COPY --from=development /app/node_modules ./node_modules
+# COPY --from=development /app/package.json ./
+# COPY --from=development /app/yarn.lock ./
 
 
 EXPOSE 3000
