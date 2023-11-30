@@ -16,7 +16,7 @@ COPY prisma ./prisma/
 RUN yarn install
 RUN npx prisma generate
 
-RUN npx prisma migrate dev
+# RUN npx prisma migrate dev
 
 COPY . .
 
