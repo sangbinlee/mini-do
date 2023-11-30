@@ -131,3 +131,46 @@ If you have any questions or inquiries, please feel free to reach out.
     settings
         ip/webhook/
         json
+
+
+
+
+# yarn start
+# npm run start
+root@ns1:/home/sangbinlee9/front-end/mini-do# npm run start
+
+
+# docker build -t mini-do:latest .        
+
+
+# docker run -p 3000:3000 mini-do:latest
+
+    PS D:\dev\front-end\mini-do> docker run -p 3000:3000 mini-do
+
+    > mini-do@1.0.0 start
+    > next start
+
+    ▲ Next.js 14.0.3
+    - Local:        http://localhost:3000
+
+    [Error: ENOENT: no such file or directory, open '/.next/BUILD_ID'] {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/.next/BUILD_ID'
+    }
+    npm notice
+    npm notice New major version of npm available! 9.8.1 -> 10.2.4
+    npm notice Changelog: <https://github.com/npm/cli/releases/tag/v10.2.4>
+    npm notice Run `npm install -g npm@10.2.4` to update!
+    npm notice
+    PS D:\dev\front-end\mini-do> docker images
+    REPOSITORY                       TAG           IMAGE ID       CREATED         SIZE
+    mini-do                          latest        7b5492c64c75   2 minutes ago   1.01GB
+    react-1                          80            06ee3c257490   9 days ago      46.5MB
+
+
+
+
+    
+# jenkins pipeline

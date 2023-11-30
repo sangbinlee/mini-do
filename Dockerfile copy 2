@@ -1,0 +1,44 @@
+FROM node:18-alpine AS base         # Use basic node image
+
+WORKDIR /app                        # Set working dir inside base docker image
+COPY . .                            # Copy our project files to docker image
+RUN npm install                     # Install project dependencies
+RUN npx prisma generate             # Generate Prisma client files
+RUN yarn build                      # Build our nestjs
+EXPOSE 3000                         # Espose our app port for incoming requests
+CMD ["npm", "run","start"]          # Run our app
+
+
+
+
+
+
+
+
+
+FROM node:18 as build       # Naming our image to be use in later steps
+
+WORKDIR /usr/src/app
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+COPY . .
+RUN npx prisma generate
+RUN npm run build
+
+
+
+
+
+FROM node:18-slim                                                                           # Base smaller node image
+RUN apt update && apt install libssl-dev -y --no-install-recommends                         # Add missing dependency needed for prisma
+WORKDIR /usr/src/app
+COPY --from=build /usr/src/app/dist ./dist                                                  # Copy de dist folder generated in the previous step
+COPY --from=build /usr/src/app/.env .env                                                    # Copy env variables to use
+COPY --from=build /usr/src/app/package.json .
+COPY --from=build /usr/src/app/package-lock.json .
+RUN npm install --omit=dev                                                                  # Install without  dev dependencies to save some space
+COPY --from=build /usr/src/app/node_modules/.prisma/client  ./node_modules/.prisma/client   # Copy generated prisma client from previous step
+ENV NODE_ENV production
+EXPOSE 3000
+CMD ["npm", "run","start:prod"]
