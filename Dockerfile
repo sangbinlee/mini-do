@@ -1,39 +1,15 @@
-# FROM node:18-alpine AS development 
 FROM node:18-alpine
 
-# Create app directory
 WORKDIR /app
 
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
-COPY prisma ./prisma/
+COPY package.json ./
 
-
-
-
-# Install app dependencies
-# RUN npm install
-RUN yarn install
-RUN npx prisma generate
-
-# RUN npx prisma migrate dev
+RUN npm install
 
 COPY . .
 
-# RUN npm run build
-RUN yarn build
+CMD ["npm", "run", "dev"]
+
  
- 
-
-
-# COPY --from=development /app/node_modules ./node_modules
-# COPY --from=development /app/package.json ./
-# COPY --from=development /app/yarn.lock ./
-
-
-EXPOSE 3000
-# CMD [ "npm", "run", "start:prod" ]
-CMD [ "npm", "run", "start" ]
-# CMD [ "yarn", "run", "start" ]
-
-# docker build -t mini-do:lastest .
+#  docker build -t mini-do:latest .
+# docker run mini-do -p 3000:3000 -v /app/node_modules -v .:/app 

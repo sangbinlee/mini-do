@@ -19,6 +19,28 @@ services:
     #   - NODE_ENV=production
     ports:
       - 3000:3000
+    networks:
+      - my_network
+
+  # Add more containers below (nginx, postgres, etc.)
+  db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      - 'POSTGRES_DB=mydatabase'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_USER=myuser'
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data/postgres/:/var/lib/postgresql/data
+
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  my_network:
+    external: true
 
 
 
@@ -30,18 +52,6 @@ services:
 
 
 
-
-  # db:
-  #   image: 'postgres:latest'
-  #   restart: always
-  #   environment:
-  #     - 'POSTGRES_DB=mydatabase'
-  #     - 'POSTGRES_PASSWORD=secret'
-  #     - 'POSTGRES_USER=myuser'
-  #   ports:
-  #     - '5432:5432'
-  #   volumes:
-  #     - ./data/postgres/:/var/lib/postgresql/data
 # volumes:
 #   db:
 
