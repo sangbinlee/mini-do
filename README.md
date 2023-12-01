@@ -1,6 +1,6 @@
 # mini-do
 
-hhhh    sdasdfasdf
+xxx
 
 mini-do is a simple todo app built with the latest technologies. It provides a minimalistic and user-friendly interface to manage your tasks efficiently. This README file provides an overview of the mini-do app, including installation instructions and usage guidelines.
 
