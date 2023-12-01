@@ -184,3 +184,5 @@ root@ns1:/home/sangbinlee9/front-end/mini-do# npm run start
 
     
 # jenkins pipeline
+
+# sudo chmod 666 /var/run/docker.sock
