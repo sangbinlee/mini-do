@@ -9,6 +9,7 @@ services:
   mini-do:
     container_name: mini-do
     image: mini-do:latest
+    user: root
     restart: always
     ports:
       - 3000:3000
