@@ -7,11 +7,10 @@ version: "3.8"
 
 services:
   mini-do:
-    # container_name: mini-do
-    # image: mini-do:latest
-    # user: root
+    container_name: mini-do
+    image: mini-do:latest
+    user: root
     restart: always
-    build: .
     ports:
       - 3000:3000
 
