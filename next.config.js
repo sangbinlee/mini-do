@@ -1,15 +1,28 @@
-/** @type {import('next').NextConfig} */
-// const nextConfig = {};
-// module.exports = nextConfig;
+ 
 
-const { PrismaPlugin } = require('@prisma/nextjs-monorepo-workaround-plugin')
 
-module.exports = {
+
+
+const { PrismaPlugin } = require("experimental-prisma-webpack-plugin");
+
+const nextConfig = {
+  experimental: {
+    serverComponentsExternalPackages: [
+      "blue-db",
+      "red-db",
+      "prisma",
+      "@prisma/client",
+    ],
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
-      config.plugins = [...config.plugins, new PrismaPlugin()]
+      return {
+        ...config,
+        plugins: [...config.plugins, new PrismaPlugin()],
+      };
     }
-
-    return config
+    return config;
   },
-}
+};
+
+module.exports = nextConfig;
