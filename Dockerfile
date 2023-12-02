@@ -4,7 +4,7 @@ WORKDIR /app
 RUN ls -al
 
 # RUN yarn install
-RUN npm install -D @prisma/nextjs-monorepo-workaround-plugin
+# RUN npm install -D @prisma/nextjs-monorepo-workaround-plugin
 
 RUN yarn install --production
 
