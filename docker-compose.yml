@@ -11,7 +11,7 @@ services:
     # image: mini-do:latest
     # user: root
     restart: always
-    build: .
+    # build: .
     ports:
       - 3000:3000
 
