@@ -1,46 +1,47 @@
 version: "3.8"
 
+
+# docker run --name nginx -d -p 80:80 --restart always nginx:1.22.1-alpine
+# docker run --name mini-do -d -p 3000:3000 mini-do:latest
+
+
 services:
-  mini-do: # 서비스 이름
+  mini-do:
     container_name: mini-do
-    build:
-      # context: ./mini-do
-      context: .
-      dockerfile: Dockerfile
-      #dockerfile: prod.Dockerfile
-    volumes:
-      - .:/app
-      - /app/node_modules
-    # restart: unless-stopped
-    # depends_on:
-    #   - db
+    image: mini-do:latest
     restart: always
-    # environment:
-    #   - NODE_ENV=production
     ports:
       - 3000:3000
-    networks:
-      - my_network
-
-  # Add more containers below (nginx, postgres, etc.)
-  db:
-    image: 'postgres:latest'
-    restart: always
-    environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
-    ports:
-      - '5432:5432'
-    volumes:
-      - ./data/postgres/:/var/lib/postgresql/data
 
 
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
-networks:
-  my_network:
-    external: true
+# services:
+#   mini-do: # 서비스 이름
+#     container_name: mini-do
+#     build:
+#       # context: ./mini-do
+#       context: .
+#       dockerfile: Dockerfile
+#       #dockerfile: prod.Dockerfile
+#     volumes:
+#       - .:/app
+#       - /app/node_modules
+#     # restart: unless-stopped
+#     # depends_on:
+#     #   - db
+#     restart: always
+#     # environment:
+#     #   - NODE_ENV=production
+#     ports:
+#       - 3000:3000
+ 
+
+
+
+
+#
+
+#
+
 
 
 
@@ -58,3 +59,4 @@ networks:
 
 
 # docker compose up -d -f docker-compose.prod.yml --build
+# docker run --name mini-do -d -p 3000:3000 mini-do:latest
