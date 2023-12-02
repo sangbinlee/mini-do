@@ -186,3 +186,11 @@ root@ns1:/home/sangbinlee9/front-end/mini-do# npm run start
 # jenkins pipeline
 
 # sudo chmod 666 /var/run/docker.sock
+
+
+
+
+
+
+# https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo
+# npm install -D @prisma/nextjs-monorepo-workaround-plugin

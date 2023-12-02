@@ -393,6 +393,11 @@
   resolved "https://registry.npmjs.org/@prisma/engines/-/engines-5.6.0.tgz"
   integrity sha512-Mt2q+GNJpU2vFn6kif24oRSBQv1KOkYaterQsi0k2/lA+dLvhRX6Lm26gon6PYHwUM8/h8KRgXIUMU0PCLB6bw==
 
+"@prisma/nextjs-monorepo-workaround-plugin@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.npmjs.org/@prisma/nextjs-monorepo-workaround-plugin/-/nextjs-monorepo-workaround-plugin-5.6.0.tgz"
+  integrity sha512-bDl8k0buzRdAi533jZShSEAqmD9ijz/35fjKXxJ9vTb3DG3bG+SDG4FC2iVwhYqeFRpWD+srdmmULgoGsTJu4Q==
+
 "@radix-ui/number@1.0.1":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@radix-ui/number/-/number-1.0.1.tgz"
