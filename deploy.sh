@@ -2,4 +2,5 @@
 npm install -g yarn
 yarn install
 yarn build
-yarn start
+# yarn start
+nohup yarn start &
