@@ -59,7 +59,7 @@ networks:
   bridge: 
 
 
-# docker run -d -e POSTGRES_DB=mydatabase -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=myuser -p "5432:5432" -v ./data/postgres:/var/run/postgresql postgres
+# docker run --name localhost -d -e POSTGRES_DB=mydatabase -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=myuser -p "5432:5432" -v ./data/postgres:/var/run/postgresql postgres
 # docker run -d -e POSTGRES_DB=mydatabase -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=myuser -p "5432:5432" -v ./data/postgres:/var/run/postgresql/data postgres
 
 # networks:
