@@ -54,11 +54,16 @@ services:  # Add more containers below (nginx, postgres, etc.)
     networks:
       - bridge
 
+
+networks:
+  bridge: 
+
+
+
 # networks:
 #   default:
 #     external:
 #       name: bridge
-
 
 
 # | Can't reach database server at `localhost`:`5432`
