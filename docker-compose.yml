@@ -51,6 +51,8 @@ services:  # Add more containers below (nginx, postgres, etc.)
       - '5432:5432'
     volumes:
       - ./data/postgres/:/var/lib/postgresql/data
+    networks:
+      - bridge
 
 # networks:
 #   default:
