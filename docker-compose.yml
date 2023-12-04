@@ -5,15 +5,15 @@ version: "3.8"
 # docker run --name mini-do -d -p 3000:3000 mini-do:latest
 
 
-services:
-  mini-do:
-    # container_name: mini-do
-    # image: mini-do:latest
-    # user: root
-    restart: always
-    # build: .
-    ports:
-      - 3000:3000
+# services:
+#   mini-do:
+#     # container_name: mini-do
+#     # image: mini-do:latest
+#     # user: root
+#     restart: always
+#     # build: .
+#     ports:
+#       - 3000:3000
 
 
 # services:
@@ -39,13 +39,23 @@ services:
 
 
 
+services:  # Add more containers below (nginx, postgres, etc.)
+  db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      - 'POSTGRES_DB=mydatabase'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_USER=myuser'
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data/postgres/:/var/lib/postgresql/data
 
-#
-
-#
-
-
-
+networks:
+  default:
+    external:
+      name: bridge
 
 
 
@@ -63,4 +73,4 @@ services:
 # docker compose up -d -f docker-compose.prod.yml --build
 # docker run --name mini-do -d -p 3000:3000 mini-do:latest
 
-
+# docker network ls
