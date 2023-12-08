@@ -13,6 +13,8 @@ import { Todo } from "@/types/todo";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
+import KakaoLogin from "../components/KakaoLogin";
+// import KakaoLogin from "../components/KakaoLogin";
 const Home = () => {
     const { toast } = useToast();
     const queryClient = useQueryClient();
@@ -108,6 +110,7 @@ const Home = () => {
                         );
                     })}
             </div>
+                        <KakaoLogin />
         </>
     );
 };

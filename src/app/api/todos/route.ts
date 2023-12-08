@@ -1,11 +1,16 @@
 import { prisma } from "@/lib/db";
-import { NextResponse, type NextRequest } from "next/server";
-import { getToken } from "next-auth/jwt";
-import { z } from "zod";
 import { todo, todos } from "@/schema/todo";
+import { getToken } from "next-auth/jwt";
+import { NextResponse, type NextRequest } from "next/server";
+import { z } from "zod";
 
 export const GET = async (req: NextRequest) => {
     const token = await getToken({ req });
+
+
+    console.log('999★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ req=',req);
+    console.log('999★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ token=',token);
+
     if (!token || !token?.sub) {
         return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }

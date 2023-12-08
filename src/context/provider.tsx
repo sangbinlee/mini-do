@@ -11,6 +11,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
       {children}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
+    
   );
 };
 export default Provider;

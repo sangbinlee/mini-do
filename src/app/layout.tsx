@@ -1,12 +1,24 @@
-import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/theme-toggle";
-import Provider from "../context/provider";
+import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Link from "next/link";
-import { Heart } from "lucide-react";
 import AuthProvider from "@/context/AuthProvider";
+import { Heart } from "lucide-react";
+import Link from "next/link";
+import Provider from "../context/provider";
+import "./globals.css";
+
+
+
+
+
+// import KakaoLogin from "../components/KakaoLogin";
+
+
+// import { KakaoBtn } from "../styles/AuthStyle";
+
+
+
 
 export const metadata = {
     title: "Mini-Do",
@@ -65,6 +77,9 @@ export default function RootLayout({
                         </p>
                     </footer>
                 </AuthProvider>
+
+
+
             </body>
         </html>
     );
